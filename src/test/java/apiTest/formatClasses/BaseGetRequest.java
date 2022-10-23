@@ -2,10 +2,9 @@ package apiTest.formatClasses;
 
 import io.restassured.http.ContentType;
 import java.util.List;
-
 import static io.restassured.RestAssured.given;
 
-public abstract class BaseGetRequest {
+public class BaseGetRequest {
 
     public static final String BASEURL = "https://omgvamp-hearthstone-v1.p.rapidapi.com/";
     public static final String APIHOST = "omgvamp-hearthstone-v1.p.rapidapi.com";
@@ -21,4 +20,5 @@ public abstract class BaseGetRequest {
                 .then().log().all()
                 .extract().body().jsonPath().getList("Root",CardByRace.class);
     }
+
 }

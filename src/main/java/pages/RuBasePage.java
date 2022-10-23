@@ -4,7 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class BasePage {
+public class RuBasePage {
 
     private static final String URL = "https://hearthstone.blizzard.com/ru-ru";
     public SelenideElement cardMenuButton = $x("//li/div/span[contains(text(), 'Карты')]");
@@ -15,7 +15,7 @@ public class BasePage {
     public SelenideElement cybersportButton = $x("//a[@data-analytics-placement=\"Esports\"]");
     public SelenideElement cardLibraryMenu = $x("//a[@data-analytics-placement=\"Cards - Card Library\"]");
 
-    public BasePage() {
+    public RuBasePage() {
     }
 
     public SelenideElement getCardMenuButton() {
