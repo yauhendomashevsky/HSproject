@@ -2,8 +2,6 @@ package uiTest;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.impl.Waiter;
-import io.cucumber.java.an.E;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
@@ -17,12 +15,13 @@ public class SearchCardTest extends BaseTest{
 
     private String oneManaName = "Изера";
     private String expectedType = "Дракон";
-    CardLibraryPage cardLibraryPage = new CardLibraryPage();
+    static CardLibraryPage cardLibraryPage = new CardLibraryPage();
     RuBasePage ruBasePage = new RuBasePage();
     EuBasePage euBasePage = new EuBasePage();
     private static final String RUURL = "https://hearthstone.blizzard.com/ru-ru";
     private static final String EUURL = "https://hearthstone.blizzard.com/en-us";
     private SelenideElement searchingCard = $x("//img[@alt=\"Вызов\"]");
+    BaseTestMethod baseTestMethod = new BaseTestMethod();
 
     @Test
     public void  searchTest(){
@@ -42,14 +41,8 @@ public class SearchCardTest extends BaseTest{
 
     @Test
     public void dhBeastCardCollectionTest(){
-        Selenide.open(EUURL);
-        euBasePage.cardButton.click();
-        euBasePage.cardLibraryButton.click();
-        cardLibraryPage.getFilterButton().click();
-        cardLibraryPage.getClassFilterButton().click();
+        baseTestMethod.beastTestRunner();
         cardLibraryPage.getDhFilterButton().click();
-        cardLibraryPage.getMinionTypeButton().click();
-        cardLibraryPage.getMinionTypeBeast().click();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -59,20 +52,86 @@ public class SearchCardTest extends BaseTest{
     }
 
     @Test
-    public void druidBeastCardCollectionTest(){
-        Selenide.open(EUURL);
-        euBasePage.cardButton.click();
-        euBasePage.cardLibraryButton.click();
-        cardLibraryPage.getFilterButton().click();
-        cardLibraryPage.getClassFilterButton().click();
-        cardLibraryPage.getDruidFilterButton().click();
-        cardLibraryPage.getMinionTypeButton().click();
-        cardLibraryPage.getMinionTypeBeast().click();
+    public void hunterBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getHunterFilterButton().click();
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(cardLibraryPage.getDruidBeastCard().size(), 12);
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 14);
+    }
+
+    @Test
+    public void mageBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getMageFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 1);
+    }
+
+    @Test
+    public void paladinBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getPaladinFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 2);
+    }
+
+    @Test
+    public void priestBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getPriestFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 2);
+    }
+
+    @Test
+    public void rogueBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getRogueFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 3);
+    }
+
+    @Test
+    public void shamanBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getShamanFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 3);
+    }
+
+    @Test
+    public void druidBeastCardCollectionTest(){
+        baseTestMethod.beastTestRunner();
+        cardLibraryPage.getDruidFilterButton().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(cardLibraryPage.getNumberOfBeastCard().size(), 12);
     }
 }

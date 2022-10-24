@@ -30,7 +30,14 @@ public class CardLibraryPage extends RuBasePage {
     public SelenideElement dhFilterButton = $x("//h6[contains(text(),'Demon Hunter')]");
     public SelenideElement classFilterButton = $x("//h6[contains(text(),'All Classes')]");
     public SelenideElement druidFilterButton = $x("//h6[contains(text(),'Druid')]");
-    public ElementsCollection druidBeastCard = $$x("//a[@class='CardLayout__CardWrap-c9pp6v-0 iaYFEU']");
+    public SelenideElement hunterFilterButton = $x("//div[@class='CircleIcon-fmr8yz-0 ClassIcon-sc-1hgwqgj-0 ClassControl__ItemIcon-jisfzz-1 DtAzA hunter']/../h6");
+    public SelenideElement mageFilterButton = $x("//h6[contains(text(),'Mage')]");
+    private static final SelenideElement MFB = $x("//h6[contains(text(),'Mage')]");
+    public SelenideElement paladinFilterButton = $x("//h6[contains(text(),'Paladin')]");
+    public SelenideElement priestFilterButton = $x("//h6[contains(text(),'Priest')]");
+    public SelenideElement rogueFilterButton = $x("//h6[contains(text(),'Rogue')]");
+    public SelenideElement shamanFilterButton = $x("//h6[contains(text(),'Shaman')]");
+    public ElementsCollection numberOfBeastCard = $$x("//a[@class='CardLayout__CardWrap-c9pp6v-0 iaYFEU']");
     public SelenideElement filterButton = $x("//div[@class=\"AdvancedFiltersButton__FilterSpace-sc-1cpqkjh-1 behVaH\"]");
 
 
@@ -85,6 +92,34 @@ public class CardLibraryPage extends RuBasePage {
         return minionTypeElemental;
     }
 
+    public SelenideElement getHunterFilterButton() {
+        return hunterFilterButton;
+    }
+
+    public SelenideElement getMageFilterButton() {
+        return mageFilterButton;
+    }
+
+    public SelenideElement getPaladinFilterButton() {
+        return paladinFilterButton;
+    }
+
+    public SelenideElement getPriestFilterButton() {
+        return priestFilterButton;
+    }
+
+    public SelenideElement getRogueFilterButton() {
+        return rogueFilterButton;
+    }
+
+    public SelenideElement getShamanFilterButton() {
+        return shamanFilterButton;
+    }
+
+    public ElementsCollection getNumberOfBeastCard() {
+        return numberOfBeastCard;
+    }
+
     public SelenideElement getMinionTypeMech() {
         return minionTypeMech;
     }
@@ -118,7 +153,7 @@ public class CardLibraryPage extends RuBasePage {
     }
 
     public ElementsCollection getDruidBeastCard() {
-        return druidBeastCard;
+        return numberOfBeastCard;
     }
 
     public SelenideElement getDhFilterButton() {
