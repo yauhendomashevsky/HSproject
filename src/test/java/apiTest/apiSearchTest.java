@@ -29,8 +29,8 @@ public class apiSearchTest extends BaseTest {
         String type = given().baseUri(BaseGetRequest.BASEURL)
                 .basePath("cards/%D0%98%D0%B7%D0%B5%D1%80%D0%B0")
                 .contentType(ContentType.JSON)
-                .header("X-RapidAPI-Key", baseQualityClass.APIKEY)
-                .header("X-RapidAPI-Host", baseQualityClass.APIHOST)
+                .header("X-RapidAPI-Key", BaseQualityClass.APIKEY)
+                .header("X-RapidAPI-Host", BaseQualityClass.APIHOST)
                 .when().get()
                 .then().log().body()
                     .extract().body().jsonPath().param("race",CardResponce.class).getString("race[0]");
