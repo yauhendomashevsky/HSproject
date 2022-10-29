@@ -32,7 +32,7 @@ public class apiSearchTest extends BaseTest {
                 .header("X-RapidAPI-Key", BaseQualityClass.APIKEY)
                 .header("X-RapidAPI-Host", BaseQualityClass.APIHOST)
                 .when().get()
-                .then().log().body()
+                .then()
                     .extract().body().jsonPath().param("race",CardResponce.class).getString("race[0]");
         Assert.assertEquals("Drag","Dragon",type);
     }
