@@ -32,7 +32,6 @@ public class CardLibraryPage extends RuBasePage {
     public SelenideElement druidFilterButton = $x("//h6[contains(text(),'Druid')]");
     public SelenideElement hunterFilterButton = $x("//div[@class='CircleIcon-fmr8yz-0 ClassIcon-sc-1hgwqgj-0 ClassControl__ItemIcon-jisfzz-1 DtAzA hunter']/../h6");
     public SelenideElement mageFilterButton = $x("//h6[contains(text(),'Mage')]");
-    private static final SelenideElement MFB = $x("//h6[contains(text(),'Mage')]");
     public SelenideElement paladinFilterButton = $x("//h6[contains(text(),'Paladin')]");
     public SelenideElement priestFilterButton = $x("//h6[contains(text(),'Priest')]");
     public SelenideElement rogueFilterButton = $x("//h6[contains(text(),'Rogue')]");

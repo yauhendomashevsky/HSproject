@@ -1,7 +1,6 @@
 package uiTest;
 
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.impl.Waiter;
 import pages.CardLibraryPage;
 import pages.EuBasePage;
 
@@ -12,6 +11,11 @@ public class BaseTestMethod extends EuBasePage {
 
     public void beastTestRunner(){
         Selenide.open(EUURL);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         cardButton.click();
         cardLibraryButton.click();
         cardLibraryPage.getFilterButton().click();
