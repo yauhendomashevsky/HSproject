@@ -11,10 +11,8 @@ public class BaseTestMethod extends EuBasePage {
 
     public void beastTestRunner(){
         Selenide.open(EUURL);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (modelIconButton.isDisplayed()){
+            modelIconButton.click();
         }
         cardButton.click();
         cardLibraryButton.click();
